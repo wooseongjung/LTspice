@@ -27,6 +27,21 @@ Id = (Kp/2) × (Vgs − Vth)²
 
 Where `Kp = μₙCₒₓ(W/L)` is the transconductance parameter.
 
+### Region Decision Flowchart
+
+```mermaid
+graph TD
+    A["Given Vgs and Vds"] --> B{"Vgs > Vth?"}
+    B -- No --> C["🔴 Cutoff\nId ≈ 0\nTransistor OFF"]
+    B -- Yes --> D{"Vds < Vgs − Vth?"}
+    D -- Yes --> E["🟡 Linear (Triode)\nId ∝ Vds\nActs as resistor"]
+    D -- No --> F["🟢 Saturation\nId ≈ constant\nActs as current source"]
+
+    style C fill:#fee,stroke:#c00
+    style E fill:#ffd,stroke:#aa0
+    style F fill:#dfd,stroke:#0a0
+```
+
 ---
 
 ## Circuit Setup
@@ -58,6 +73,25 @@ Place on the schematic with `S`:
 ```
 - `Vto=0.5` → threshold voltage = 0.5 V
 - `Kp=200u` → transconductance parameter = 200 μA/V²
+
+---
+
+### Simulation Workflow
+
+```mermaid
+graph TD
+    A["1. Place NMOS\n(F2 → nmos)"] --> B["2. Add Vgs & Vds sources\n(F2 → voltage)"]
+    B --> C["3. Connect GND to\nSource & Bulk"]
+    C --> D["4. Add .model directive\n(S key)"]
+    D --> E["5. Add .dc sweep\n(S key)"]
+    E --> F["6. Run Simulation\n(toolbar or Simulate → Run)"]
+    F --> G["7. Probe Id at Drain\n(click Drain terminal)"]
+    G --> H["8. Analyse I-V curves\nin waveform viewer"]
+
+    style A fill:#e8f0fe,stroke:#4285f4
+    style F fill:#e8f0fe,stroke:#4285f4
+    style H fill:#e8f0fe,stroke:#4285f4
+```
 
 ---
 
@@ -147,6 +181,22 @@ Set Vds to a constant value (e.g. 1.65 V) so the MOSFET stays in saturation.
 | Waveform probing | Click terminals to plot current/voltage |
 
 ---
+
+## Study Roadmap
+
+```mermaid
+graph LR
+    A["1. UI &\nFundamentals\n✅"] --> B["2. MOSFET\nI-V Curves\n✅"]
+    B --> C["3. Core Analog\nBlocks\n⬜"]
+    C --> D["4. Analog IP\nDesign\n⬜"]
+    D --> E["5. Mixed Signal\n+ Verilog\n⬜"]
+
+    style A fill:#dfd,stroke:#0a0
+    style B fill:#dfd,stroke:#0a0
+    style C fill:#ffd,stroke:#aa0
+    style D fill:#eee,stroke:#999
+    style E fill:#eee,stroke:#999
+```
 
 ## Next Step
 **Core Analog Building Blocks** — Start with the common-source amplifier, then move to differential pairs and current mirrors.
