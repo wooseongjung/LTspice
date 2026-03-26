@@ -53,18 +53,8 @@ graph TD
 4. **GND** — connect to Source and Bulk (Body)
 
 ### Schematic
-```
-        Vds
-         |
-         D
-         |
-    Vgs--G   NMOS
-         |
-         S
-         |
-        GND
-        (Bulk also to GND)
-```
+
+![MOSFET I-V Test Circuit](diagrams/mosfet_iv_schematic.png)
 
 ### MOSFET model directive
 Place on the schematic with `S`:
