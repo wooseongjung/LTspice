@@ -17,7 +17,7 @@
 ## Opening LTspice & Creating a Schematic
 1. Open LTspice → grey workspace appears
 2. Top menu: `File  Edit  View  Simulate  Tools  Window  Help`
-3. New schematic: **File → New Schematic** (`Ctrl+N`)
+3. New schematic: **File → New Schematic** (`Cmd+N`)
 
 ---
 
@@ -25,28 +25,30 @@
 
 | Shortcut | Function |
 |----------|----------|
-| `R` | Place resistor |
-| `C` | Place capacitor |
-| `L` | Place inductor |
-| `D` | Place diode |
-| `F` | Open component browser (for MOSFETs etc.) |
-| `W` | Draw wires |
+| `F2` | Open component browser (resistor, capacitor, MOSFET, etc.) |
+| `F3` | Draw wires |
 | `G` | Place GND symbol |
-| `V` | Place voltage/current source |
 | `S` | Type raw SPICE directive |
 | `F4` | Label a net/node |
 | `T` | Add comment text |
+| `F5` | Delete mode |
+| `F6` | Duplicate |
+| `F7` | Move |
+| `F8` | Drag (keeps wires attached) |
+
+> **Note:** On Mac, there are no single-key shortcuts for placing resistors (`R`), capacitors (`C`), inductors (`L`), diodes (`D`), or voltage sources (`V`). Use `F2` to open the component browser and search by name.
 
 ---
 
 ## Key Mac Interaction Rules
 
 ### Placing a component
-1. Press shortcut key (e.g. `R` for resistor)
-2. Component follows cursor
-3. Left-click to place
-4. Right-click to rotate before placing
-5. `Esc` to cancel
+1. Press `F2` to open the component browser (or use `G` for GND)
+2. Search for the component (e.g. "res", "nmos", "voltage")
+3. Select it — component follows cursor
+4. `Ctrl+R` to rotate, `Ctrl+E` to mirror before placing
+5. Left-click to place
+6. `Esc` to cancel
 
 ### Editing a component value
 - Right-click on the component → opens properties dialog
@@ -55,17 +57,18 @@
 ### Moving & Deleting
 | Action | How |
 |--------|-----|
-| Move (detaches wires) | Hover + press `M` |
+| Move (detaches wires) | `F7` |
 | Drag (keeps wires) | `F8` |
 | Delete mode | `Del` or `F5` |
-| Undo | `Ctrl+Z` |
-| Zoom in/out | Scroll wheel |
-| Fit to window | `Ctrl+Shift+F` or `F` |
+| Undo | `Cmd+Z` (or `F9`) |
+| Redo | `Cmd+Shift+Z` (or `Shift+F9`) |
+| Zoom in/out | Two-finger pinch/spread |
+| Fit to window | `Space` |
 
 ---
 
 ## Placing a MOSFET
-1. Press `F` (or **Edit → Add Component**)
+1. Press `F2` (or **Edit → Add Component**)
 2. Search `nmos` or `pmos` in the component browser
 3. Select and place on canvas
 
@@ -91,7 +94,7 @@ Press `S` to open the SPICE directive box. Place these as text on the schematic 
 ---
 
 ## Running a Simulation & Viewing Waveforms
-1. Press Run button (toolbar) — equivalent to `Ctrl+R`
+1. Press Run button (toolbar) or **Simulate → Run**
 2. Waveform viewer opens
 3. Click on a wire → probes node voltage
 4. Click on a component body → probes current through it
@@ -115,7 +118,7 @@ Press `S` to open the SPICE directive box. Place these as text on the schematic 
 
 ## First Exercise Checklist
 - [ ] Place one NMOS (`nmos` from component browser)
-- [ ] Place a voltage source (`V`) on gate and drain
+- [ ] Place a voltage source (`F2` → search "voltage") on gate and drain
 - [ ] Place GND symbols on source and bulk
 - [ ] Add `.op` SPICE directive
 - [ ] Run simulation — confirm no errors
