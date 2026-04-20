@@ -1,0 +1,21 @@
+* Single-stage NMOS common-source amp — ngspice sanity test
+* Level 1 model (rough, just to verify flow)
+* Expected: some gain at low freq, rolloff at high freq
+
+V1 vdd 0 DC 1.8
+Vin in 0 DC 0.7 AC 1
+M1 out in 0 0 nmos W=10u L=0.18u
+R1 vdd out 10k
+
+.model nmos NMOS (Level=1 Vto=0.4 Kp=200u Lambda=0.02)
+
+.op
+.ac dec 10 1 1G
+
+.control
+run
+print v(out)
+plot vdb(out)
+.endc
+
+.end

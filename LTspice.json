@@ -1,0 +1,23 @@
+{
+    "Downloads": {
+        "Download LTspice XVII (End of Support)": {
+            "Filename": "LTspice64.exe",
+            "Version": ""
+        },
+        "Download for MacOS 10.15 and forward": {
+            "Filename": "LTspice.pkg",
+            "Version": "17.2.4"
+        },
+        "Download for Windows 10 64-bit and forward": {
+            "Filename": "LTspice64.msi",
+            "Version": "26.0.1"
+        },
+        "Download for Windows 11 ARM64 and forward": {
+            "Filename": "LTspice64_arm.msi",
+            "Version": "26.0.1"
+        }
+    },
+    "Installation": "2026-03-23",
+    "LTspice_Mac": "17.2.4",
+    "Models": "2026-03-23"
+}
