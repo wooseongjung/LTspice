@@ -1,22 +1,78 @@
 # LTspice — Mixed Signal IC Design Study Notes
 
-Self-study notes for mixed-signal IC design:
-**LTspice → Quartus → Verilog**
+Self-study for analog/mixed-signal IC design, targeting Samsung DS / SK Hynix design engineer roles and KAIST EE master's preparation.
+
+## Toolchain
+Open-source analog design stack:
+
+| Tool | Role |
+|------|------|
+| **LTspice** | Primary SPICE simulator (schematic + waveform viewer) |
+| **ngspice** | CLI SPICE — batch sims, Monte Carlo, Python integration |
+| **KiCad** | Schematic capture + PCB layout |
+| **Qucs (Qucs-S)** | Alternative simulator, RF/noise analysis, ngspice backend |
+
+Later: **Cadence Virtuoso → Quartus → Verilog HDL**
+
+---
+
+## Reference Courses
+
+### Course 1 — Inflearn: Practical Analog Circuit Design (Analog IP)
+Tool setup, single-stage amp simulation methodology, and the 7 core analog IPs used at Samsung/SK Hynix.
+
+### Course 2 — Advanced Mixed-Signal (Part 3, Ch 1–8)
+PLL, ADC/DAC, high-speed analog, noise/distortion, layout, PVT, test, integration project.
+
+---
 
 ## Study Roadmap
-| Stage | Topic | Status |
-|-------|-------|--------|
-| 1 | LTspice UI & Fundamentals | ✅ Done |
-| 2 | MOSFET Review in SPICE | ✅ Done |
-| 3 | Core Analog Building Blocks | ⬜ Upcoming |
-| 4 | Analog IP Design (BGR/LDO/OTA) | ⬜ Upcoming |
-| 5 | Mixed Signal + Verilog | ⬜ Upcoming |
+
+### Part 0 — Tool Setup
+| # | Topic | Status |
+|---|-------|--------|
+| 00 | LTspice on Mac | ⬜ |
+| 01 | ngspice setup & CLI workflow | ⬜ |
+| 02 | KiCad schematic capture | ⬜ |
+| 03 | Qucs / Qucs-S setup | ⬜ |
+| 04 | Cross-tool workflow & netlist exchange | ⬜ |
+
+### Part 1 — Analog IP Foundations (Inflearn Sections 3–4)
+| # | Topic | Primary Tool | Status |
+|---|-------|--------------|--------|
+| 05 | TSMC 180nm Process Library | LTspice / ngspice | ⬜ |
+| 06 | Single-Stage Amp + 5 Simulations (DC/DC sweep/AC/Tran/Noise) | LTspice | ⬜ |
+| 07 | BGR — Bandgap Reference | LTspice + ngspice | ⬜ |
+| 08 | AMP — Operational Amplifier | LTspice + ngspice | ⬜ |
+| 09 | LDO — Low-Dropout Regulator | LTspice + ngspice | ⬜ |
+| 10 | Level Shifter | LTspice | ⬜ |
+| 11 | Comparator | LTspice | ⬜ |
+| 12 | Oscillator (Ring / VCO) | LTspice + Qucs | ⬜ |
+| 13 | Charge Pump | LTspice | ⬜ |
+| 14 | House-Keeping Block (Integration) | LTspice + KiCad | ⬜ |
+
+### Part 2 — Advanced Mixed-Signal (Part 3 of Advanced Course)
+| # | Topic | Primary Tool | Status |
+|---|-------|--------------|--------|
+| 15 | PLL Fundamentals & High-Speed I/F | LTspice + ngspice | ⬜ |
+| 16 | ADC / DAC — Precision Data Conversion | ngspice + Python | ⬜ |
+| 17 | High-Speed Analog & SI/PI | Qucs + LTspice | ⬜ |
+| 18 | Noise / Distortion / Linearity | Qucs + ngspice | ⬜ |
+| 19 | Analog Layout Fundamentals | KiCad | ⬜ |
+| 20 | PVT & Advanced Nodes (FinFET/GAA) | ngspice (Monte Carlo) | ⬜ |
+| 21 | Analog Test — ATE & Production | Conceptual + ngspice | ⬜ |
+| 22 | Analog Integration Project | All tools | ⬜ |
+
+---
 
 ## Environment
-- LTspice for macOS 17.2.4
-- Quartus Prime Lite
-- Verilog HDL
+- macOS, LTspice 17.2.4
+- ngspice (install via Homebrew)
+- KiCad (install via official DMG)
+- Qucs-S (install via Homebrew or build from source)
+- TSMC 180nm library (Course 1)
 
-## Notes Index
-- [01 — UI Walkthrough](01_UI_Walkthrough.md)
-- [02 — MOSFET I-V Curves](02_MOSFET_IV_Curves.md)
+## Goals
+- Build portfolio of designed analog IPs (BGR, AMP, LDO, Comparator, Oscillator, Charge Pump)
+- Prepare for Samsung DS / SK Hynix analog circuit design interviews
+- Strengthen technical foundation for KAIST EE master's program (analog & mixed-signal IC design)
