@@ -38,18 +38,22 @@ PLL, ADC/DAC, high-speed analog, noise/distortion, layout, PVT, test, integratio
 | 04 | Cross-tool workflow & netlist exchange | ⬜ |
 
 ### Part 1 — Analog IP Foundations (Inflearn Sections 3–4)
-| # | Topic | Primary Tool | Status |
-|---|-------|--------------|--------|
-| 05 | TSMC 180nm Process Library | LTspice / ngspice | ⬜ |
-| 06 | Single-Stage Amp + 5 Simulations (DC/DC sweep/AC/Tran/Noise) | LTspice | ⬜ |
-| 07 | BGR — Bandgap Reference | LTspice + ngspice | ⬜ |
-| 08 | AMP — Operational Amplifier | LTspice + ngspice | ⬜ |
-| 09 | LDO — Low-Dropout Regulator | LTspice + ngspice | ⬜ |
-| 10 | Level Shifter | LTspice | ⬜ |
-| 11 | Comparator | LTspice | ⬜ |
-| 12 | Oscillator (Ring / VCO) | LTspice + Qucs | ⬜ |
-| 13 | Charge Pump | LTspice | ⬜ |
-| 14 | House-Keeping Block (Integration) | LTspice + KiCad | ⬜ |
+
+Each IP (07–13) follows the same 3-step course pattern:
+**(1)** Follow-along build (그대로 따라해보기) → **(2)** Improve target metric → **(3)** Design to given constraint.
+
+| # | Topic | Improve → Final Design Target | Tool | Status |
+|---|-------|-------------------------------|------|--------|
+| 05 | TSMC 180nm Process Library | — | LTspice / ngspice | ⬜ |
+| 06 | Single-Stage Amp + 5 Simulations | DC / DC-sweep / AC / Tran / Noise methodology | LTspice | ⬜ |
+| 07 | BGR — Bandgap Reference | Low-Voltage Reference → Target VREF | LTspice + ngspice | ⬜ |
+| 08 | AMP — Operational Amplifier | High-Gain → Min AREA | LTspice + ngspice | ⬜ |
+| 09 | LDO — Low-Dropout Regulator | Phase-Margin → Stability | LTspice + ngspice | ⬜ |
+| 10 | Level Shifter | Wide-Range + Low-Power → Low-Power + Rising-Time | LTspice | ⬜ |
+| 11 | Comparator | High-Speed → Low-Offset | LTspice | ⬜ |
+| 12 | Oscillator (Ring / VCO) | Noise + Jitter → Area + Power | LTspice + Qucs | ⬜ |
+| 13 | Charge Pump | Power-Efficiency → Small-Area | LTspice | ⬜ |
+| 14 | House-Keeping Block (Integration) | Multi-IP integration project | LTspice + KiCad | ⬜ |
 
 ### Part 2 — Advanced Mixed-Signal (Part 3 of Advanced Course)
 | # | Topic | Primary Tool | Status |
